@@ -129,9 +129,9 @@ h3 { margin: 0 0 8px; font-size: 19px; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 12px; gap: 8px;
 }
-.phone-cap { color: #fff; font-weight: bold; font-size: 19px; margin: 0; line-height: 1.25; }
-.phone-cap em { font-style: normal; color: var(--yellow); }
-.phone-sub { color: #cfc9bb; font-size: 13px; margin: 0; }
+.phone .phone-cap { color: #fff; font-weight: bold; font-size: 19px; margin: 0; line-height: 1.25; }
+.phone .phone-cap em { font-style: normal; color: var(--yellow); }
+.phone .phone-sub { color: #cfc9bb; font-size: 13px; margin: 0; }
 .phone-bar { height: 6px; background: #3a3733; border-radius: 3px; margin-top: 10px; overflow: hidden; }
 .phone-bar span { display: block; height: 100%; width: 0%; background: var(--yellow); transition: width .15s linear; }
 
