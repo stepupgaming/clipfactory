@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClipFactory — Local-first vertical video clipping</title>
+  <meta name="description" content="ClipFactory turns long footage into short vertical clips on your own machine: transcript-first selection, multi-beat FFmpeg rendering, deterministic QA gates, and Editing DNA style transfer. It never posts — publishing is a human act.">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101010'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='bold' text-anchor='middle' fill='%23f7cb46'%3ECF%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#demo">Skip to the live demo</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="ClipFactory home">
+        <span class="brand-mark" aria-hidden="true">CF</span>
+        <span class="brand-name">ClipFactory</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#demo">Demo</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#dna">Editing DNA</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-small" href="https://github.com/stepupgaming/clipfactory/issues/new" rel="noopener">Request access</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Local-first &middot; Offline &middot; Human publishes</p>
+          <h1>Turn long footage into short clips, on your own machine.</h1>
+          <p class="lede">ClipFactory is a local batch clipper for vertical video: transcript-first candidate selection, multi-beat FFmpeg rendering, deterministic QA gates, and Editing DNA style transfer from a reference video. No uploads, no auto-posting, no surprises.</p>
+          <div class="actions">
+            <a class="btn" href="#demo">Try the live demo</a>
+            <a class="btn ghost" href="#pipeline">See how it works</a>
+          </div>
+          <ul class="stats" aria-label="Facts">
+            <li><strong>469</strong><span>tests in suite</span></li>
+            <li><strong>100%</strong><span>local render</span></li>
+            <li><strong>0</strong><span>auto-posts, ever</span></li>
+            <li><strong>9:16</strong><span>vertical-first</span></li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-label="Example clip plan">
+          <div class="phone" aria-hidden="true">
+            <div class="phone-screen">
+              <p class="phone-cap">Pay yourself <em>first</em></p>
+              <p class="phone-sub">even if it is only a few dollars</p>
+            </div>
+            <div class="phone-bar"><span></span></div>
+          </div>
+          <div class="hero-card-body">
+            <p class="mono-label">clip.plan excerpt</p>
+            <pre class="code">clip_id   clip-007
+range     18.8s – 29.5s
+verdict   review_required
+qa        pass · captions ok
+status    waiting on you</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY STRIP -->
+    <section class="strip" aria-label="Safety promise">
+      <div class="wrap">
+        <p><strong>Safety promise:</strong> ClipFactory never joins a campaign, posts, submits, spends money, or mutates an account. Everything stops at local render &mdash; publishing is a human act.</p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <p class="eyebrow">What it does</p>
+        <h2>Evidence in, clips out. Nothing else.</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Transcript-first selection</h3>
+            <p>Word-timed transcripts (local ASR with provenance) anchor every boundary to a real sentence. Proposals without transcript evidence are rejected, not guessed.</p>
+          </article>
+          <article class="card">
+            <h3>Multi-beat rendering</h3>
+            <p>Clips render as structured beats &mdash; hook, body, payoff &mdash; reframed to 9:16 with burned-in captions via FFmpeg. Replaceable fills let you swap a beat without re-rendering the world.</p>
+          </article>
+          <article class="card">
+            <h3>Deterministic QA gates</h3>
+            <p>Every render passes media checks (black frames, freezes, silence), caption QA, and visual QA. Outcomes are typed: publish-ready, review-required, or blocked &mdash; with reasons attached.</p>
+          </article>
+          <article class="card">
+            <h3>Editing DNA transfer</h3>
+            <p>Point at a reference video you admire. ClipFactory extracts its editorial behaviors, plans an edit of your raw footage in that style, validates the plan, then renders.</p>
+          </article>
+          <article class="card">
+            <h3>Caption styles</h3>
+            <p>Constrained presets (bold animated, karaoke, minimal) with validated ASS overrides &mdash; readable on phones, safe areas respected, no font chaos.</p>
+          </article>
+          <article class="card">
+            <h3>Foundry plugin</h3>
+            <p>Ships as a <span class="mono">foundry-plugin.v1</span> capability pack: 8 commands (batch select/render/run, DNA extract/plan/render/assemble/variant) with schemas and typed results.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section alt" id="pipeline">
+      <div class="wrap">
+        <p class="eyebrow">How it works</p>
+        <h2>Two tracks, one principle: no evidence, no clip.</h2>
+        <div class="tracks">
+          <article class="card track">
+            <p class="mono-label">Track A &middot; Batch clipping</p>
+            <ol class="steps">
+              <li><strong>Inventory</strong> sources into a stable library manifest.</li>
+              <li><strong>Transcribe</strong> with word timings and provider provenance.</li>
+              <li><strong>Select</strong> a candidate bank &mdash; scored, reasoned, non-overlapping.</li>
+              <li><strong>Render</strong> multi-beat 9:16 clips with captions.</li>
+              <li><strong>Gate</strong> with media, caption, and visual QA.</li>
+              <li><strong>Review</strong> &mdash; you accept, hold, or reject. Nothing posts itself.</li>
+            </ol>
+          </article>
+          <article class="card track">
+            <p class="mono-label">Track B &middot; Editing DNA</p>
+            <ol class="steps">
+              <li><strong>Extract</strong> behaviors from a reference video.</li>
+              <li><strong>Interpret</strong> them into a named, reusable style.</li>
+              <li><strong>Plan</strong> an edit of your raw footage in that style.</li>
+              <li><strong>Validate</strong> the plan against schemas and budgets.</li>
+              <li><strong>Render</strong> the styled edit, then assemble or variant the beats.</li>
+            </ol>
+          </article>
+        </div>
+        <p class="muted">Ranking rule the engine enforces: QA status and evidence rank clips. Predicted views are never a ranking input.</p>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section class="section" id="demo">
+      <div class="wrap">
+        <p class="eyebrow">Live demo &middot; runs in your browser</p>
+        <h2>Transcript in, candidate bank out.</h2>
+        <p class="lede">This is the same <em>shape</em> as the engine's selection stage: sentence-anchored boundaries, explainable scores, non-overlapping picks. It runs here on a built-in sample transcript &mdash; no uploads, no server. The desktop engine adds local ASR word timings, FFmpeg media signals, and the full QA gates.</p>
+
+        <div class="demo">
+          <div class="card demo-controls">
+            <div class="field-row">
+              <div>
+                <label for="target-count">Clips wanted</label>
+                <div class="stepper">
+                  <button type="button" id="count-minus" aria-label="Fewer clips">&minus;</button>
+                  <output id="target-count" aria-live="polite">2</output>
+                  <button type="button" id="count-plus" aria-label="More clips">+</button>
+                </div>
+              </div>
+              <div>
+                <label for="platform">Platform</label>
+                <select id="platform">
+                  <option value="tiktok" selected>TikTok (9:16)</option>
+                  <option value="shorts">YouTube Shorts (9:16)</option>
+                  <option value="reels">Reels (9:16)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="keywords">Focus keywords <span class="hint">(comma-separated, boosts matching sentences)</span></label>
+              <input id="keywords" type="text" value="retirement, debt, automate" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="field-row">
+              <div>
+                <label for="min-dur">Min seconds</label>
+                <select id="min-dur">
+                  <option value="8">8</option>
+                  <option value="12" selected>12</option>
+                  <option value="20">20</option>
+                </select>
+              </div>
+              <div>
+                <label for="max-dur">Max seconds</label>
+                <select id="max-dur">
+                  <option value="30">30</option>
+                  <option value="45" selected>45</option>
+                  <option value="60">60</option>
+                </select>
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn" type="button" id="run-demo">Select clips</button>
+              <button class="ghost" type="button" id="reset-demo">Reset</button>
+            </div>
+            <p class="stage" id="demo-stage" aria-live="polite"><span class="spin" id="demo-spin" hidden></span><span id="demo-stage-label">Ready — press “Select clips”.</span></p>
+          </div>
+
+          <div class="demo-results">
+            <div id="candidates" class="candidates" aria-live="polite"></div>
+            <div class="card player-card">
+              <p class="mono-label">Preview &middot; <span id="preview-title">no clip selected yet</span></p>
+              <div class="player">
+                <div class="phone small" aria-hidden="true">
+                  <div class="phone-screen">
+                    <p class="phone-cap" id="cap-main">Press “Select clips”</p>
+                    <p class="phone-sub" id="cap-sub">your preview plays here</p>
+                  </div>
+                  <div class="phone-bar"><span id="cap-progress"></span></div>
+                </div>
+                <div class="player-side">
+                  <p class="time mono" id="time-label">0.0s / 0.0s</p>
+                  <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="Scrub clip">
+                  <div class="actions">
+                    <button class="btn btn-small" type="button" id="play-btn" disabled>Play</button>
+                  </div>
+                </div>
+              </div>
+              <details class="advanced">
+                <summary>Edit-plan JSON (selected clip)</summary>
+                <pre class="code" id="plan-json">Run the demo to generate a plan.</pre>
+              </details>
+              <p class="muted tiny">Browser demo only: media QA (black / freeze / silence), caption QA, and visual QA run in the desktop engine, not here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DNA -->
+    <section class="section alt" id="dna">
+      <div class="wrap">
+        <p class="eyebrow">Editing DNA</p>
+        <h2>Steal like an editor, not like a thief.</h2>
+        <p class="lede">Analyze a reference video into a reusable style &mdash; pacing, caption behavior, inserts, reframes &mdash; then apply it to your own raw footage. Three styles ship as examples:</p>
+        <div class="grid three">
+          <article class="card">
+            <h3>Hormozi</h3>
+            <ul class="ticks">
+              <li>Short middle captions</li>
+              <li>Punch / reframe emphasis</li>
+              <li>Visual bridge retention</li>
+              <li>Faster pacing</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Camilo</h3>
+            <ul class="ticks">
+              <li>Short middle captions</li>
+              <li>Supporting inserts under VO</li>
+              <li>Faster pacing</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Persona</h3>
+            <ul class="ticks">
+              <li>Visual bridge retention</li>
+              <li>Faster pacing</li>
+            </ul>
+          </article>
+        </div>
+        <pre class="code">python -m clipper_engine.cli style-analyze --source reference.mp4 --name MyStyle
+python -m clipper_engine.cli style-list
+python -m clipper_engine.cli edit-generate --style STYLE_ID --target raw.mp4 --out ./edit</pre>
+      </div>
+    </section>
+
+    <!-- QUICKSTART -->
+    <section class="section" id="quickstart">
+      <div class="wrap">
+        <p class="eyebrow">Quickstart</p>
+        <h2>On your machine in minutes.</h2>
+        <div class="grid two">
+          <div>
+            <p class="mono-label">Prerequisites</p>
+            <ul class="ticks">
+              <li>Python 3.12</li>
+              <li><span class="mono">ffmpeg</span> + <span class="mono">ffprobe</span> on PATH</li>
+              <li>Local GPU services are optional &mdash; with a supplied transcript the pipeline is fully local</li>
+            </ul>
+          </div>
+          <div>
+            <p class="mono-label">Install &amp; run</p>
+            <pre class="code">pip install -e .
+python -m clipper_engine.cli batch-run --help
+python -m clipper_engine.cli app        # desktop app, no quotas
+python -m editing_dna --help            # style-transfer track</pre>
+          </div>
+        </div>
+        <p class="muted">The engine source is in private beta &mdash; <a href="https://github.com/stepupgaming/clipfactory/issues/new">request access</a> and the same commands work after checkout.</p>
+      </div>
+    </section>
+
+    <!-- PLUGIN -->
+    <section class="section alt" id="plugin">
+      <div class="wrap">
+        <p class="eyebrow">Platform</p>
+        <h2>A Foundry plugin, not a black box.</h2>
+        <p class="lede">ClipFactory ships as a <span class="mono">foundry-plugin.v1</span> capability pack. Eight typed commands, JSON schemas for every input and output, structured events and results &mdash; spawned exactly like the host runs them and covered by a conformance suite.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Does</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">clip.batch-select</td><td>Transcript-first candidate bank across a batch</td></tr>
+              <tr><td class="mono">clip.batch-render</td><td>Render + QA the selected candidates</td></tr>
+              <tr><td class="mono">clip.batch-run</td><td>Select, render, and QA end to end</td></tr>
+              <tr><td class="mono">dna.extract</td><td>Reference video &rarr; validated event graph</td></tr>
+              <tr><td class="mono">dna.plan</td><td>Planner input &rarr; validated edit plan</td></tr>
+              <tr><td class="mono">dna.render</td><td>Accepted plan + sources &rarr; styled video</td></tr>
+              <tr><td class="mono">dna.assemble</td><td>Replaceable beat-list assembly</td></tr>
+              <tr><td class="mono">dna.variant</td><td>Swap one beat, keep the body</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY -->
+    <section class="section" id="safety">
+      <div class="wrap">
+        <p class="eyebrow">Safety</p>
+        <h2>The line it will not cross.</h2>
+        <div class="grid two">
+          <article class="card never">
+            <h3>Never</h3>
+            <ul class="ticks no">
+              <li>Join a campaign</li>
+              <li>Post or submit anything</li>
+              <li>Spend money</li>
+              <li>Mutate an account</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Always</h3>
+            <ul class="ticks">
+              <li>Stop at local render</li>
+              <li>Attach reasons to every decision</li>
+              <li>Gate output: publish-ready, review-required, or blocked</li>
+              <li>Leave publishing to a human</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt" id="faq">
+      <div class="wrap narrow">
+        <p class="eyebrow">FAQ</p>
+        <h2>Asked, answered.</h2>
+        <details class="faq" open>
+          <summary>Does ClipFactory post to TikTok for me?</summary>
+          <p>No. It renders video files and evidence on your machine and stops. Uploading, posting, and submitting are human acts it cannot perform.</p>
+        </details>
+        <details class="faq">
+          <summary>Does it need the cloud?</summary>
+          <p>No. Selection, rendering, and QA run locally with FFmpeg and deterministic validators. Optional local services (AI Runtime gateway, Gemmy) talk to localhost only, and with a supplied transcript the pipeline needs neither.</p>
+        </details>
+        <details class="faq">
+          <summary>What does the demo above actually do?</summary>
+          <p>It runs the selection stage's shape &mdash; sentence-anchored boundaries, explainable scoring, greedy non-overlapping picks &mdash; on a built-in sample transcript, entirely in your browser. Nothing leaves your device.</p>
+        </details>
+        <details class="faq">
+          <summary>How is ranking kept honest?</summary>
+          <p>Clips rank by QA status and evidenced score. Predicted views are never a ranking input, and financial summaries never treat raw views as cash.</p>
+        </details>
+        <details class="faq">
+          <summary>Where is the source code?</summary>
+          <p>The engine is in private beta while the platform matures. <a href="https://github.com/stepupgaming/clipfactory/issues/new">Request access here</a> &mdash; this page and its demo are public and open.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="wrap cta-inner">
+        <h2>Your footage. Your machine. Your call.</h2>
+        <p>Try the demo, then request access to the engine when you're ready.</p>
+        <div class="actions">
+          <a class="btn" href="#demo">Run the demo</a>
+          <a class="btn ghost-light" href="https://github.com/stepupgaming/clipfactory/issues/new" rel="noopener">Request access</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <p><strong>ClipFactory</strong> &mdash; local, offline short-form clipping and Editing DNA style transfer.</p>
+      <p class="muted tiny">Safety clause: never joins a campaign, posts, submits, spends money, or mutates an account. Demo runs fully in your browser; no data leaves your device.</p>
+      <p class="tiny"><a href="https://github.com/stepupgaming/clipfactory" rel="noopener">Site source</a> &middot; <a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
