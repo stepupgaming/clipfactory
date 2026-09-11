@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ClipFactory — Local-first vertical video clipping</title>
   <meta name="description" content="ClipFactory turns long footage into short vertical clips on your own machine: transcript-first selection, multi-beat FFmpeg rendering, deterministic QA gates, and Editing DNA style transfer. It never posts — publishing is a human act.">
-  <link rel="stylesheet" href="./styles.css?v=2">
+  <link rel="stylesheet" href="./styles.css?v=3">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101010'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='bold' text-anchor='middle' fill='%23f7cb46'%3ECF%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-  <a class="skip" href="#demo">Skip to the live demo</a>
+  <a class="skip" href="#results">Skip to the real outputs</a>
 
   <header class="topbar">
     <div class="wrap topbar-inner">
@@ -18,7 +18,7 @@
         <span class="brand-name">ClipFactory</span>
       </a>
       <nav class="nav" aria-label="Sections">
-        <a href="#demo">Demo</a>
+        <a href="#results">Results</a>
         <a href="#pipeline">Pipeline</a>
         <a href="#dna">Editing DNA</a>
         <a href="#quickstart">Quickstart</a>
@@ -38,31 +38,31 @@
           <h1>Turn long footage into short clips, on your own machine.</h1>
           <p class="lede">ClipFactory is a local batch clipper for vertical video: transcript-first candidate selection, multi-beat FFmpeg rendering, deterministic QA gates, and Editing DNA style transfer from a reference video. No uploads, no auto-posting, no surprises.</p>
           <div class="actions">
-            <a class="btn" href="#demo">Try the live demo</a>
+            <a class="btn" href="#results">See real outputs</a>
             <a class="btn ghost" href="#pipeline">See how it works</a>
           </div>
           <ul class="stats" aria-label="Facts">
-            <li><strong>469</strong><span>tests in suite</span></li>
+            <li><strong>482</strong><span>tests in suite</span></li>
             <li><strong>100%</strong><span>local render</span></li>
             <li><strong>0</strong><span>auto-posts, ever</span></li>
             <li><strong>9:16</strong><span>vertical-first</span></li>
           </ul>
         </div>
-        <div class="hero-card" aria-label="Example clip plan">
+        <div class="hero-card" aria-label="Real clip record">
           <div class="phone" aria-hidden="true">
             <div class="phone-screen">
-              <p class="phone-cap">Pay yourself <em>first</em></p>
-              <p class="phone-sub">even if it is only a few dollars</p>
+              <p class="phone-cap">My partner's <em>off the grid</em></p>
+              <p class="phone-sub">real caption rail, gemmy highlight</p>
             </div>
-            <div class="phone-bar"><span></span></div>
+            <div class="phone-bar"><span style="width:62%"></span></div>
           </div>
           <div class="hero-card-body">
-            <p class="mono-label">clip.plan excerpt</p>
-            <pre class="code">clip_id   clip-007
-range     18.8s – 29.5s
+            <p class="mono-label">real clip record</p>
+            <pre class="code">clip_id   candidate-061
+range     174.6s – 184.0s
+render    8.5s · 720x1280
 verdict   review_required
-qa        pass · captions ok
-status    waiting on you</pre>
+qa        PASS · gemmy captions</pre>
           </div>
         </div>
       </div>
@@ -87,19 +87,19 @@ status    waiting on you</pre>
           </article>
           <article class="card">
             <h3>Multi-beat rendering</h3>
-            <p>Clips render as structured beats &mdash; hook, body, payoff &mdash; reframed to 9:16 with burned-in captions via FFmpeg. Replaceable fills let you swap a beat without re-rendering the world.</p>
+            <p>Clips render as structured beats &mdash; hook, body, payoff &mdash; reframed to 9:16 with captions overlaid exclusively by Gemmy Caption. Replaceable fills let you swap a beat without re-rendering the world.</p>
           </article>
           <article class="card">
             <h3>Deterministic QA gates</h3>
-            <p>Every render passes media checks (black frames, freezes, silence), caption QA, and visual QA. Outcomes are typed: publish-ready, review-required, or blocked &mdash; with reasons attached.</p>
+            <p>Every render passes media checks (black frames, freezes, silence, A/V drift), caption QA, and visual QA. Outcomes are typed: publish-ready, review-required, or blocked &mdash; with reasons attached. The gates bite, including on our own showcase below.</p>
           </article>
           <article class="card">
             <h3>Editing DNA transfer</h3>
             <p>Point at a reference video you admire. ClipFactory extracts its editorial behaviors, plans an edit of your raw footage in that style, validates the plan, then renders.</p>
           </article>
           <article class="card">
-            <h3>Caption styles</h3>
-            <p>Constrained presets (bold animated, karaoke, minimal) with validated ASS overrides &mdash; readable on phones, safe areas respected, no font chaos.</p>
+            <h3>Gemmy Caption rails</h3>
+            <p>One caption renderer, no fallbacks: HyperFrames rails (highlight, pill-karaoke, gradient-fill, editorial-emphasis, weight-shift&hellip;) overlaid by Gemmy. If Gemmy is missing, the render fails loudly instead of degrading silently.</p>
           </article>
           <article class="card">
             <h3>Foundry plugin</h3>
@@ -121,7 +121,7 @@ status    waiting on you</pre>
               <li><strong>Inventory</strong> sources into a stable library manifest.</li>
               <li><strong>Transcribe</strong> with word timings and provider provenance.</li>
               <li><strong>Select</strong> a candidate bank &mdash; scored, reasoned, non-overlapping.</li>
-              <li><strong>Render</strong> multi-beat 9:16 clips with captions.</li>
+              <li><strong>Render</strong> multi-beat 9:16 clips, captions via Gemmy.</li>
               <li><strong>Gate</strong> with media, caption, and visual QA.</li>
               <li><strong>Review</strong> &mdash; you accept, hold, or reject. Nothing posts itself.</li>
             </ol>
@@ -141,89 +141,83 @@ status    waiting on you</pre>
       </div>
     </section>
 
-    <!-- DEMO -->
-    <section class="section" id="demo">
+    <!-- REAL RESULTS -->
+    <section class="section" id="results">
       <div class="wrap">
-        <p class="eyebrow">Live demo &middot; runs in your browser</p>
-        <h2>Transcript in, candidate bank out.</h2>
-        <p class="lede">This is the same <em>shape</em> as the engine's selection stage: sentence-anchored boundaries, explainable scores, non-overlapping picks. It runs here on a built-in sample transcript &mdash; no uploads, no server. The desktop engine adds local ASR word timings, FFmpeg media signals, and the full QA gates.</p>
+        <p class="eyebrow">Real outputs &middot; rendered by the engine</p>
+        <h2>Proof, not promises.</h2>
+        <p class="lede">Everything below is genuine ClipFactory output, rendered on a local machine from a 27-minute 4K source (GTA VI Trailer 2, extended look &mdash; rights <span class="mono">practice-only</span>, excerpts shown to demonstrate the tool). Transcript: 2,623 words / 243 segments, provider <span class="mono">gemmy-parakeet</span>. Captions: Gemmy Caption exclusively. QA verdicts included unedited &mdash; including the failures.</p>
 
-        <div class="demo">
-          <div class="card demo-controls">
-            <div class="field-row">
-              <div>
-                <label for="target-count">Clips wanted</label>
-                <div class="stepper">
-                  <button type="button" id="count-minus" aria-label="Fewer clips">&minus;</button>
-                  <output id="target-count" aria-live="polite">2</output>
-                  <button type="button" id="count-plus" aria-label="More clips">+</button>
-                </div>
-              </div>
-              <div>
-                <label for="platform">Platform</label>
-                <select id="platform">
-                  <option value="tiktok" selected>TikTok (9:16)</option>
-                  <option value="shorts">YouTube Shorts (9:16)</option>
-                  <option value="reels">Reels (9:16)</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label for="keywords">Focus keywords <span class="hint">(comma-separated, boosts matching sentences)</span></label>
-              <input id="keywords" type="text" value="retirement, debt, automate" autocomplete="off" spellcheck="false">
-            </div>
-            <div class="field-row">
-              <div>
-                <label for="min-dur">Min seconds</label>
-                <select id="min-dur">
-                  <option value="8">8</option>
-                  <option value="12" selected>12</option>
-                  <option value="20">20</option>
-                </select>
-              </div>
-              <div>
-                <label for="max-dur">Max seconds</label>
-                <select id="max-dur">
-                  <option value="30">30</option>
-                  <option value="45" selected>45</option>
-                  <option value="60">60</option>
-                </select>
-              </div>
-            </div>
-            <div class="actions">
-              <button class="btn" type="button" id="run-demo">Select clips</button>
-              <button class="ghost" type="button" id="reset-demo">Reset</button>
-            </div>
-            <p class="stage" id="demo-stage" aria-live="polite"><span class="spin" id="demo-spin" hidden></span><span id="demo-stage-label">Ready — press “Select clips”.</span></p>
-          </div>
+        <h3 class="subhead">Batch clips</h3>
+        <p class="muted">Transcript-first selection picked 2 non-overlapping candidates from the full source. Both rendered 720&times;1280/30fps, both QA <span class="badge pass">PASS</span>, both <span class="badge review">review_required</span> &mdash; the engine does not auto-approve.</p>
+        <div class="grid two videos">
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061.mp4"></video>
+            <h3>Candidate 061 &middot; score 0.64</h3>
+            <p class="mono tiny">174.6s – 184.0s &rarr; 8.5s render &middot; highlight rail</p>
+            <p class="hook">&ldquo;My partner's off the grid right now, you feel me?&rdquo;</p>
+            <p><span class="badge pass">media QA pass</span> <span class="badge pass">caption QA pass</span> <span class="badge review">review_required</span></p>
+          </article>
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-018.mp4"></video>
+            <h3>Candidate 018 &middot; score 0.517</h3>
+            <p class="mono tiny">36.2s – 51.8s &rarr; 5.4s render &middot; highlight rail</p>
+            <p class="hook">&ldquo;Yeah, go inside and ask for Raymond, bro&rdquo;</p>
+            <p><span class="badge pass">media QA pass</span> <span class="badge review">caption QA: 1 short cue</span> <span class="badge review">review_required</span></p>
+          </article>
+        </div>
 
-          <div class="demo-results">
-            <div id="candidates" class="candidates" aria-live="polite"></div>
-            <div class="card player-card">
-              <p class="mono-label">Preview &middot; <span id="preview-title">no clip selected yet</span></p>
-              <div class="player">
-                <div class="phone small" aria-hidden="true">
-                  <div class="phone-screen">
-                    <p class="phone-cap" id="cap-main">Press “Select clips”</p>
-                    <p class="phone-sub" id="cap-sub">your preview plays here</p>
-                  </div>
-                  <div class="phone-bar"><span id="cap-progress"></span></div>
-                </div>
-                <div class="player-side">
-                  <p class="time mono" id="time-label">0.0s / 0.0s</p>
-                  <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="Scrub clip">
-                  <div class="actions">
-                    <button class="btn btn-small" type="button" id="play-btn" disabled>Play</button>
-                  </div>
-                </div>
-              </div>
-              <details class="advanced">
-                <summary>Edit-plan JSON (selected clip)</summary>
-                <pre class="code" id="plan-json">Run the demo to generate a plan.</pre>
-              </details>
-              <p class="muted tiny">Browser demo only: media QA (black / freeze / silence), caption QA, and visual QA run in the desktop engine, not here.</p>
-            </div>
-          </div>
+        <h3 class="subhead">Caption rails &middot; one moment, five styles</h3>
+        <p class="muted">Controlled variant: same 8.5s moment, only the caption rail changes (control <span class="mono">highlight</span>, challengers <span class="mono">pill-karaoke</span> / <span class="mono">weight-shift</span> / <span class="mono">gradient-fill</span> / <span class="mono">editorial-emphasis</span>). Two rails failed the A/V drift gate &mdash; Gemmy's karaoke and weight-shift overlays truncate ~3 frames, deterministically, twice in a row. The gate caught it; the clips stay <span class="badge review">review_required</span>.</p>
+        <div class="grid rails">
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061--control.mp4"></video>
+            <h3>highlight <span class="muted tiny">(control)</span></h3>
+            <p><span class="badge pass">QA pass</span></p>
+          </article>
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061--karaoke.mp4"></video>
+            <h3>pill-karaoke</h3>
+            <p><span class="badge fail">drift 0.090s &gt; 0.08 gate</span></p>
+          </article>
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061--minimal.mp4"></video>
+            <h3>weight-shift</h3>
+            <p><span class="badge fail">drift 0.090s &gt; 0.08 gate</span></p>
+          </article>
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061--clean.mp4"></video>
+            <h3>gradient-fill</h3>
+            <p><span class="badge pass">QA pass</span></p>
+          </article>
+          <article class="card video-card">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/gta6-trailer2_candidate-061--bold_box.mp4"></video>
+            <h3>editorial-emphasis</h3>
+            <p><span class="badge pass">QA pass</span></p>
+          </article>
+        </div>
+
+        <h3 class="subhead">Editing DNA transfer</h3>
+        <p class="muted">Reference: 60s slice &rarr; 12-shot event graph &rarr; interpretation (pacing, cut policy, caption policy, structure <span class="badge pass">supported</span>; zoom, b-roll <span class="badge review">unresolved</span>). Planner <span class="mono">grok-4.6</span> via local OAuth bridge: first draft rejected by the validator, repair pass accepted. The plan declines what the evidence can't support &mdash; zoom holds only, no b-roll, 4 rejected alternatives, 3 stated uncertainties. Target canvas preserved by design (DNA keeps source aspect; 9:16 is the batch track's job).</p>
+        <div class="grid two videos">
+          <article class="card video-card wide">
+            <video controls preload="metadata" src="https://github.com/stepupgaming/clipfactory/releases/download/showcase-v1/dna-transfer-gta6.mp4"></video>
+            <h3>Styled edit &middot; hook 0–18s, context 43.8–52.2s, payoff 57.0–59.8s</h3>
+            <p class="mono tiny">29.2s &middot; captions auto/middle &middot; validator: accept after 1 repair</p>
+            <p><span class="badge pass">plan accept</span> <span class="badge review">uncertainties admitted: 3</span></p>
+          </article>
+          <article class="card">
+            <p class="mono-label">How this page was made</p>
+            <ol class="steps">
+              <li><strong>Transcribe</strong> 27 min via parakeet (chunked; engine validator merged).</li>
+              <li><strong>Select</strong> 2 candidates, transcript-first.</li>
+              <li><strong>Render</strong> 9:16 + 5 rails, Gemmy captions only.</li>
+              <li><strong>Gate</strong> media + caption + visual QA.</li>
+              <li><strong>Transfer</strong> extract &rarr; interpret &rarr; plan &rarr; render.</li>
+              <li><strong>Publish</strong> videos as release assets; page stays static.</li>
+            </ol>
+            <p class="tiny muted">All artifacts (candidate bank, edit plans, QA reports, planner I/O) live with the run; videos: <a href="https://github.com/stepupgaming/clipfactory/releases/tag/showcase-v1" rel="noopener">showcase-v1 release</a>.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -233,7 +227,7 @@ status    waiting on you</pre>
       <div class="wrap">
         <p class="eyebrow">Editing DNA</p>
         <h2>Steal like an editor, not like a thief.</h2>
-        <p class="lede">Analyze a reference video into a reusable style &mdash; pacing, caption behavior, inserts, reframes &mdash; then apply it to your own raw footage. Three styles ship as examples:</p>
+        <p class="lede">Analyze a reference video into a reusable style &mdash; pacing, caption behavior, inserts, reframes &mdash; then apply it to your own raw footage. Three styles ship as examples (see one working above):</p>
         <div class="grid three">
           <article class="card">
             <h3>Hormozi</h3>
@@ -277,7 +271,8 @@ python -m clipper_engine.cli edit-generate --style STYLE_ID --target raw.mp4 --o
             <ul class="ticks">
               <li>Python 3.12</li>
               <li><span class="mono">ffmpeg</span> + <span class="mono">ffprobe</span> on PATH</li>
-              <li>Local GPU services are optional &mdash; with a supplied transcript the pipeline is fully local</li>
+              <li><span class="mono">gemmy</span> on PATH for ASR and caption overlays (typed error without it &mdash; never a silent fallback)</li>
+              <li>Optional: local LLM lane (Hermes proxy + <span class="mono">CLIPFACTORY_LLM_ENDPOINT</span>) for the DNA planner</li>
             </ul>
           </div>
           <div>
@@ -355,11 +350,11 @@ python -m editing_dna --help            # style-transfer track</pre>
         </details>
         <details class="faq">
           <summary>Does it need the cloud?</summary>
-          <p>No. Selection, rendering, and QA run locally with FFmpeg and deterministic validators. Optional local services (AI Runtime gateway, Gemmy) talk to localhost only, and with a supplied transcript the pipeline needs neither.</p>
+          <p>No. Selection, rendering, and QA run locally with FFmpeg, Gemmy (local GPU), and deterministic validators. The DNA planner can point at any OpenAI-compatible local lane; the showcase transfer above was planned by Grok through a local OAuth bridge &mdash; still no provider keys in the repo.</p>
         </details>
         <details class="faq">
-          <summary>What does the demo above actually do?</summary>
-          <p>It runs the selection stage's shape &mdash; sentence-anchored boundaries, explainable scoring, greedy non-overlapping picks &mdash; on a built-in sample transcript, entirely in your browser. Nothing leaves your device.</p>
+          <summary>Are the videos above real?</summary>
+          <p>Yes. Real engine outputs from a 27-minute source, with real transcripts, real caption rails, and real QA verdicts &mdash; failures included. Videos stream from public release assets; this page itself is static and collects nothing.</p>
         </details>
         <details class="faq">
           <summary>How is ranking kept honest?</summary>
@@ -367,7 +362,7 @@ python -m editing_dna --help            # style-transfer track</pre>
         </details>
         <details class="faq">
           <summary>Where is the source code?</summary>
-          <p>The engine is in private beta while the platform matures. <a href="https://github.com/stepupgaming/clipfactory/issues/new">Request access here</a> &mdash; this page and its demo are public and open.</p>
+          <p>The engine is in private beta while the platform matures. <a href="https://github.com/stepupgaming/clipfactory/issues/new">Request access here</a> &mdash; this page and its evidence are public and open.</p>
         </details>
       </div>
     </section>
@@ -376,9 +371,9 @@ python -m editing_dna --help            # style-transfer track</pre>
     <section class="cta">
       <div class="wrap cta-inner">
         <h2>Your footage. Your machine. Your call.</h2>
-        <p>Try the demo, then request access to the engine when you're ready.</p>
+        <p>Watch the outputs, then request access to the engine when you're ready.</p>
         <div class="actions">
-          <a class="btn" href="#demo">Run the demo</a>
+          <a class="btn" href="#results">See the results</a>
           <a class="btn ghost-light" href="https://github.com/stepupgaming/clipfactory/issues/new" rel="noopener">Request access</a>
         </div>
       </div>
@@ -388,11 +383,9 @@ python -m editing_dna --help            # style-transfer track</pre>
   <footer>
     <div class="wrap foot-inner">
       <p><strong>ClipFactory</strong> &mdash; local, offline short-form clipping and Editing DNA style transfer.</p>
-      <p class="muted tiny">Safety clause: never joins a campaign, posts, submits, spends money, or mutates an account. Demo runs fully in your browser; no data leaves your device.</p>
+      <p class="muted tiny">Safety clause: never joins a campaign, posts, submits, spends money, or mutates an account. Showcase source rights: practice-only. Videos stream from public release assets; this page collects nothing.</p>
       <p class="tiny"><a href="https://github.com/stepupgaming/clipfactory" rel="noopener">Site source</a> &middot; <a href="#top">Back to top</a></p>
     </div>
   </footer>
-
-  <script src="./app.js" defer></script>
 </body>
 </html>
